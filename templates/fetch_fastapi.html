@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+       <title></title>
+    </head>
+    <body>
+      <button type="button" onClick="postData();"></button>    
+      <script type="text/javascript"> 
+             function postData() {
+    const url = 'http://192.168.50.161:8000/data';  // Replace with your FastAPI endpoint URL
+
+    const data = {
+        key1: 'value1',
+        key2: 'value2'
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('POST request successful!');
+        console.log('Response:', result);
+    })
+    .catch(error => {
+        console.log('POST request failed!');
+        console.error('Error:', error);
+    });
+}
+
+
+      </script>
+
+    </body>
+
+</html>
